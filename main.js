@@ -439,6 +439,18 @@ bot.addListener("message", function(from, to, text, message) {
 		bot.say(config.channels[0], "FOR THE GREATER GOOD https://www.youtube.com/watch?v=N_q2wBzT6uU");
 	}
 
+	if(splitup[0].toLowerCase() == ".c"){
+		//.c 11 nok usd
+		//.c 123232423423423 CAD USD
+		if(splitup[1] && splitup[2] && splitup[3]){
+			var currencyString = splitup[1];
+			var currencySign1 = splitup[2].toUpperCase();
+			var currencySign2 = splitup[3].toUpperCase();
+			ConvertCurrency(currencyString, currencySign1, currencySign2);
+		}
+		else bot.say(config.channels[0], "money is a tool of the bourgeoisie");
+	}
+	
 });
 
 function randomFromArray(array){
@@ -541,6 +553,29 @@ function getCurrency (currencyString, currencySign) {
 	    }
 	    else{
 	    	 bot.say(config.channels[0], "idk, bench more");
+	    }
+	  }
+	});
+}
+
+function ConvertCurrency (currencyString, currencySign1, currencySign2 ) {
+	var appid = "b9bd43152a7982d06499"; // got my own api code :O
+	var url = "https://free.currencyconverterapi.com/api/v6/convert?q="+currencySign1+"_"+currencySign2+"&compact=ultra&apiKey="+appid;
+	request(url, function (err, response, body) {
+	  if(err){
+	    console.log('error converting currency:', error);
+	  }
+	  else {
+	    console.log('currency converted:', body);
+	    var sample = JSON.parse(body);
+	    if(Object.getOwnPropertyNames(sample).length){
+		var currencyConv = sample[currencySign1+currencySign2];
+		var amount = 1.0*currencyString*currencyConv;
+		var theyDidtheMath = amount+currencySign2;
+		bot.say(config.channels[0], theyDidtheMath);
+	    }
+	    else{
+	    	 bot.say(config.channels[0], "fukkin bolognaise taking the money");
 	    }
 	  }
 	});
