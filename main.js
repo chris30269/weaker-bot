@@ -570,8 +570,8 @@ function getCurrency (currencyString, currencySign) {
 	});
 }
 function dirtyWords (wordToDefine) {
-	var url = "http://api.urbandictionary.com/v0/define?term="+wordToDefine;
-	request(url, function (err, response, body) {
+	var urban = "http://api.urbandictionary.com/v0/define?term="+wordToDefine;
+	request(urban, function (err, response, body) {
 	 if(err){
 	    console.log('error getting definition: ', error);
 	  }
