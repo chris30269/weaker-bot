@@ -229,6 +229,10 @@ bot.addListener("message", function(from, to, text, message) {
 		bot.say(config.channels[0], from+" fuckin cuck");
 		return;
 	}
+	if(message.args[1].toLowerCase().indexOf("westside") > -1){
+		bot.say(config.channels[0], from+" IF YOU AIN'T AT WESTSIDE U AIN'T DOING WESTSIDE");
+		return;
+	}
 	if(message.args[1].toLowerCase().indexOf("hello pls") > -1){
 		// if Kyle has HELLO PLS'd 3 times, tell him to fuck off already
 		if (message.nick.toLowerCase() == "trefirefem"){
