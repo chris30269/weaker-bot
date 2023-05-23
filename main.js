@@ -120,7 +120,8 @@ var lastPerson;
 var counter = {
 	robo: 0,
 	lari: 0,
-	tre: 0
+	tre: 0,
+	tea: 0
 };
 
 // console.log(bot);
@@ -142,14 +143,17 @@ bot.addListener("join", function (channel, who) {
 bot.addListener("message", function (from, to, text, message) {
 	// if(message.nick.indexOf("robo") > -1) counter.robo++;
 	if (message.nick.indexOf("lari") > -1) counter.lari++;
+	if (message.nick.indexOf("tea") > -1) counter.tea++;
 	if (counter.robo > 20) {
 		bot.say(config.channels[0], message.nick + " " + randomFromArray(affection));
 		counter.robo = 0;
 	}
-	if (counter.lari > 20) {
+	
+	if (counter.lari > 20 || counter.tea > 20) {
 		bot.say(config.channels[0], message.nick + " " + randomFromArray(bulk));
 		counter.lari = 0;
 	}
+	
 	// console.log("message: ", message);
 	var splitup = message.args[1].split(" ");
 	if (splitup[0].toLowerCase() == "..ping" || splitup[0].toLowerCase() == "!ping" || splitup[0].toLowerCase() == ".ping") {
