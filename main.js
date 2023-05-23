@@ -152,6 +152,7 @@ bot.addListener("message", function (from, to, text, message) {
 	if (counter.lari > 20 || counter.tea > 20) {
 		bot.say(config.channels[0], message.nick + " " + randomFromArray(bulk));
 		counter.lari = 0;
+		counter.tea = 0;
 	}
 	
 	// console.log("message: ", message);
