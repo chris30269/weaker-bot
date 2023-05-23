@@ -9,7 +9,7 @@ const rebuke = ["bitch you thought", "no", "I'm tired of you", "yeah no", "what 
 const pongs = ["ya bitch", "ya dingus", "ya weakling", "ya ugly ass"];
 const greetings = ["Hi", "Hey", "Sup", "What's shaking", "Whaddup", "You actually look OK today", "Hello", "What dat mouf do", "what's up"];
 const affection = ["I <3 u bb", "never change", "did you do something with your hair? It looks nice", "you smell nice"];
-const bulk = ["eat ur cheese", "doot doot", "what's for lunch"];
+const bulk = ["eat ur cheese", "doot doot", "what's for lunch", "run Starting Appetite ASAP", "how much over EMA", "eat more squat more"];
 const songs = [
 	"You spin me right round bb",
 	"This is the story of a girl",
